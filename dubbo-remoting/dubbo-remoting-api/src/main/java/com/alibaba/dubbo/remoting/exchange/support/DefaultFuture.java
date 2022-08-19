@@ -114,6 +114,7 @@ public class DefaultFuture implements ResponseFuture {
     }
 
     public static void received(Channel channel, Response response) {
+        logger.info("-wkl- " + System.currentTimeMillis() + " t8_1 af nty");
         try {
             DefaultFuture future = FUTURES.remove(response.getId());
             if (future != null) {
@@ -232,6 +233,7 @@ public class DefaultFuture implements ResponseFuture {
     }
 
     private Object returnFromResponse() throws RemotingException {
+        logger.info("-wkl- " + System.currentTimeMillis() + " t9 bf res");
         Response res = response;
         if (res == null) {
             throw new IllegalStateException("response cannot be null");

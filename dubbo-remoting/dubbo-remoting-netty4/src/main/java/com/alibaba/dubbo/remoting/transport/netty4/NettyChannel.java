@@ -98,6 +98,7 @@ final class NettyChannel extends AbstractChannel {
         boolean success = true;
         int timeout = 0;
         try {
+            logger.info("-wkl- " + System.currentTimeMillis() + " t1 bf nty");
             ChannelFuture future = channel.writeAndFlush(message);
             if (sent) {
                 timeout = getUrl().getPositiveParameter(Constants.TIMEOUT_KEY, Constants.DEFAULT_TIMEOUT);

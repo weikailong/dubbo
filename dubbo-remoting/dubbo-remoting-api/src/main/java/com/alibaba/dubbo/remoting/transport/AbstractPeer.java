@@ -18,6 +18,8 @@ package com.alibaba.dubbo.remoting.transport;
 
 import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.common.logger.Logger;
+import com.alibaba.dubbo.common.logger.LoggerFactory;
 import com.alibaba.dubbo.remoting.Channel;
 import com.alibaba.dubbo.remoting.ChannelHandler;
 import com.alibaba.dubbo.remoting.Endpoint;
@@ -27,6 +29,8 @@ import com.alibaba.dubbo.remoting.RemotingException;
  * AbstractPeer
  */
 public abstract class AbstractPeer implements Endpoint, ChannelHandler {
+
+    protected static final Logger logger = LoggerFactory.getLogger(AbstractPeer.class);
 
     private final ChannelHandler handler;
 
@@ -141,6 +145,7 @@ public abstract class AbstractPeer implements Endpoint, ChannelHandler {
 
     @Override
     public void received(Channel ch, Object msg) throws RemotingException {
+        logger.info("-wkl- " + System.currentTimeMillis() + " t8 af nty");
         if (closed) {
             return;
         }
